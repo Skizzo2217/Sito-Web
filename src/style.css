@@ -1,39 +1,93 @@
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background: #111;
+  background: #000;
   color: white;
+  font-family: 'Helvetica Neue', sans-serif;
 }
-
-.nav {
-  display: flex;
-  justify-content: space-between;
-  padding: 20px;
+.quadrato {
+  width: 200px;
+  height: 200px;
+  background: red;
 }
-
-.hero {
-  height: 80vh;
+/* HOME */
+.home {
+  height: 100vh;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+}
+
+/* LOGO DI SFONDO */
+.logo-bg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 600px;
+  height: 600px;
+  background: url('/logo-bg.png') center/contain no-repeat;
+  opacity: 0.5;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+  pointer-events: none;
+  filter: blur(1px);
+}
+
+/* CENTRO */
+.center {
+  text-align: center;
+  margin-top: 120px;
+  z-index: 2;
+  position: relative;
+}
+
+.title {
+  font-size: 26px;
+  font-weight: 300;
+  letter-spacing: 2px;
+}
+
+/* SCELTE */
+.choices {
+  display: flex;
+  height: 200px;
+  z-index: 2;
+  position: relative;
+}
+
+.choice {
+  flex: 1;
+  display: flex;
   justify-content: center;
   align-items: center;
+  border-top: 1px solid #222;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  font-size: 20px;
+  letter-spacing: 2px;
 }
 
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+.choice:hover {
+  background: white;
+  color: black;
 }
 
-.gallery img {
-  width: 100%;
-  transition: 0.3s;
+.choice span {
+  transition: transform 0.3s ease;
 }
 
-.gallery img:hover {
-  transform: scale(1.05);
+.choice:hover span {
+  transform: scale(1.08);
 }
 
-.contact {
-  padding: 40px;
-  text-align: center;
+/* OVERLAY GRAIN */
+.home::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: url('https://www.transparenttextures.com/patterns/asfalt-light.png');
+  opacity: 0.05;
+  pointer-events: none;
+  z-index: 1;
 }

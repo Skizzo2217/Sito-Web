@@ -1,17 +1,17 @@
-import Navbar from "./components/Navbar";
-import Hero from "./components/Hero";
-import Gallery from "./components/Gallery";
-import Contact from "./components/Contact";
-import "./style.css";
+import { Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import Architettura from "./pages/Architettura";
+import Arte from "./pages/Arte";
+import Contatti from "./pages/Contact";
 
 function App() {
   return (
-    <>
-      <Navbar />
-      <Hero />
-      <Gallery />
-      <Contact />
-    </>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/architettura" element={<Architettura />} />
+      <Route path="/arte" element={<Arte />} />
+      <Route path="/contact" element={<Contatti />} />
+    </Routes>
   );
 }
 
